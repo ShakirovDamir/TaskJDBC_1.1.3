@@ -2,6 +2,8 @@ package jm.task.core.jdbc.util;
 
 import java.sql.*;
 
+
+
 public class Util {
     private static final String user = "root";
     private static final String password = "root";
@@ -12,7 +14,7 @@ public class Util {
             "serverTimezone=Europe/Moscow&use" +
             "useSSL=false";
 
-   public Connection databaseConnection() {
+    public Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,3 +27,4 @@ public class Util {
         return connection;
     }
 }
+

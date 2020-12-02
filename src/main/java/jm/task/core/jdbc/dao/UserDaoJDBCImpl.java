@@ -7,9 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
-    Connection connection = databaseConnection();
+
+    Connection connection = getConnection();
 
     public UserDaoJDBCImpl() {
     }
@@ -21,9 +23,8 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
                 "  lastName VARCHAR(255) NOT NULL," +
                 "  age INT NOT NULL," +
                 "  PRIMARY KEY (id));";
-        Statement statement = null;
         try {
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,7 +33,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
 
     public void dropUsersTable(){
         String sql = "DROP TABLE users";
-        Statement statement = null;
+        Statement statement;
         try {
             statement = connection.createStatement();
             statement.executeUpdate(sql);
