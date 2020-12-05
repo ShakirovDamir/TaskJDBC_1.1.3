@@ -22,8 +22,8 @@ public class Main {
         userDao.cleanUsersTable();
         userDao.dropUsersTable();
 
-//         private static UserService userService = new UserServiceImpl();
-//         userService.createUsersTable();
+//        UserService userService = new UserServiceImpl();
+//        userService.createUsersTable();
 //        userService.saveUser("Damir", "Shakirov", (byte) 28);
 //        userService.saveUser("Igor", "Nikiforov", (byte) 49);
 //        userService.saveUser("Michael", "Zelenkov", (byte) 50);

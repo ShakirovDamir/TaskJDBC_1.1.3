@@ -25,8 +25,6 @@ public class Util {
         Configuration configuration = new Configuration();
         properties.setProperty(Environment.DRIVER,"com.mysql.jdbc.Driver");
         properties.setProperty(Environment.DIALECT,"org.hibernate.dialect.MySQL5Dialect");
-        properties.setProperty(Environment.DIALECT,"org.hibernate.dialect.MySQL5Dialect");
-        properties.setProperty(Environment.DIALECT,"org.hibernate.dialect.MySQL5Dialect");
         properties.setProperty(Environment.HBM2DDL_AUTO, "update");
         properties.setProperty(Environment.URL, url);
         properties.setProperty(Environment.USER, user);
