@@ -21,8 +21,6 @@ public class Util {
             "serverTimezone=Europe/Moscow&use" +
             "useSSL=false";
 
-    private static SessionFactory sessionFactory;
-    private static ServiceRegistry serviceRegistry;
     public static SessionFactory getSessionFactory(){
         Properties properties = new Properties();
         Configuration configuration = new Configuration();
@@ -34,9 +32,8 @@ public class Util {
         properties.setProperty(Environment.PASS, password);
         configuration.setProperties(properties);
         configuration.addAnnotatedClass(User.class);
-        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        return sessionFactory;
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        return configuration.buildSessionFactory(serviceRegistry);
     }
 
 
