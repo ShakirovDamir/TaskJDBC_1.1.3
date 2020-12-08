@@ -21,12 +21,13 @@ public class UserDaoHibernateImpl implements UserDao {
         sessionFactory = Util.getSessionFactory();
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        session.createSQLQuery("CREATE TABLE users (" +
+        session.createSQLQuery("DROP TABLE IF EXISTS users " + "CREATE TABLE users (" +
                 "  id INT NOT NULL AUTO_INCREMENT," +
                 "  name VARCHAR(255) NOT NULL," +
                 "  lastName VARCHAR(255) NOT NULL," +
                 "  age INT NOT NULL," +
-                "  PRIMARY KEY (id));").executeUpdate();
+                "  PRIMARY KEY (id));");
+        //.executeUpdate();
         transaction.commit();
         session.close();
         sessionFactory.close();
