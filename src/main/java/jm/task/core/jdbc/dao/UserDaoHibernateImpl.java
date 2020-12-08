@@ -9,9 +9,9 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    Transaction transaction;
-    SessionFactory sessionFactory;
-    Session session;
+    private Transaction transaction;
+    private SessionFactory sessionFactory;
+    private Session session;
 
     public UserDaoHibernateImpl() {
     }
@@ -26,7 +26,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 "  name VARCHAR(255) NOT NULL," +
                 "  lastName VARCHAR(255) NOT NULL," +
                 "  age INT NOT NULL," +
-                "  PRIMARY KEY (id));");
+                "  PRIMARY KEY (id));").executeUpdate();
         transaction.commit();
         session.close();
         sessionFactory.close();
